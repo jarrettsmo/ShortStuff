@@ -1,0 +1,48 @@
+div.row {
+  margin-bottom: 0;
+}
+
+div.ep-background {
+  background: url("../ShortStuff/Media/BG_Shapes_Wide_01.png") no-repeat;
+  background-size: cover;
+  margin-top: 0;
+  padding: 0;
+}
+
+img.LogoSS {
+  margin: 0.25em 1rem 0.05rem 1rem;
+}
+
+a.modeMargin {
+  margin: 20px 10px;
+}
+
+a.shortcutMargin {
+  font-size: 0.75em;
+  margin: 5px;
+  width: 100%;
+}
+
+span.addBtnMargin {
+  font-size: 0.75em;
+  margin: 10px;
+}
+
+textarea.primaryFocus {
+  background-color: white;
+  font-size: 1.5em;
+  height: 300px;
+  resize: none;
+  width: 100%;
+}
+
+div.h-100 {
+  height: 100vh;
+  margin-bottom: 0;
+}
+
+div#masterContainer {
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+}
