@@ -1,0 +1,60 @@
+{
+  "name": "ShortStuff",
+  "short_name": "SS",
+  "description": "Manage shortcuts, templates, and tasks",
+  "start_url": "/index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#4db6ac",
+  "theme_color": "#009688",
+  "dir": "ltr",
+  "lang": "en-US",
+  "icons": [
+      {
+          "src": "/Media/Logos/LOGO_ShortStuff_01_48x48.png",
+          "type": "image/png",
+          "sizes": "48x48"
+      },
+      {
+          "src": "/Media/Logos/LOGO_ShortStuff_01_72x72.png",
+          "type": "image/png",
+          "sizes": "72x72"
+      },
+      {
+          "src": "/Media/Logos/LOGO_ShortStuff_01_96x96.png",
+          "type": "image/png",
+          "sizes": "96x96"
+      },
+      {
+          "src": "/Media/Logos/LOGO_ShortStuff_01_128x128.png",
+          "type": "image/png",
+          "sizes": "128x128"
+      },
+      {
+          "src": "/Media/Logos/LOGO_ShortStuff_01_144x144.png",
+          "type": "image/png",
+          "sizes": "144x144"
+      },
+      {
+          "src": "/Media/Logos/LOGO_ShortStuff_01_152x152.png",
+          "type": "image/png",
+          "sizes": "152x152"
+      },
+      {
+          "src": "/Media/Logos/LOGO_ShortStuff_01_192x192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+      },
+      {
+          "src": "/Media/Logos/LOGO_ShortStuff_01_384x384.png",
+          "type": "image/png",
+          "sizes": "384x384"
+      },
+      {
+          "src": "/Media/Logos/LOGO_ShortStuff_01_512x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+      }        
+  ]
+}
