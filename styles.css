@@ -2,8 +2,8 @@ div.row {
   margin-bottom: 0;
 }
 
-div.ep-background {
-  background: url("../ShortStuff/Media/BG_Shapes_Wide_01.png") no-repeat;
+div.row.epbackground {
+  background: url("/Media/Background_HexagonFadeBlue.png") no-repeat;
   background-size: cover;
   margin-top: 0;
   padding: 0;
