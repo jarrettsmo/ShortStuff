@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--Customized CSS Stylesheet-->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/Files_CSS/styles.css" />
 
     <!--Manifest.json File-->
     <link rel="manifest" href="/.vscode/manifest.json">
@@ -24,6 +24,8 @@
     />
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
 
     <title>ShortStuff</title>
   </head>
@@ -45,20 +47,20 @@
             <div class="col s1 LogoSS">
               <img
                 class="LogoSS"
-                src="/Media/Logos/LOGO_ShortStuff_01.png"
+                src="../Media/Logos/LOGO_ShortStuff_01.png"
                 height="72px"
                 width="72px"
               />
             </div>
             <div class="col s11">
               <a class="waves-effect waves-light btn right modeMargin"
-                >Mode 3</a
+                >Shortcuts</a
               >
               <a class="waves-effect waves-light btn right modeMargin"
-                >Mode 4</a
+                >Templates</a
               >
               <a class="waves-effect waves-light btn right modeMargin"
-                >Mode 1</a
+                >Modes</a
               >
             </div>
           </div>
@@ -75,27 +77,45 @@
           </div>
         </div>
         <div class="col s3">
-          <ul>
-            <li class="right">
-              <span class="addBtnMargin">Add Shortcut</span
-              ><a class="btn-floating btn-small waves-effect waves-light green"
-                ><i class="material-icons">add</i></a
+          <div class="ml4">
+            <span class="addBtnMargin">Edit Shortcuts</span
+              >
+              <a class="btn-floating btn-small waves-effect amber accent-4"
+                ><i onclick="w3.toggleShow('.shortcutEdit')"  class="material-icons">edit</i></a
+              >
+            <span class="addBtnMargin">Add Shortcut</span
+            >
+            <a class="btn-floating btn-small waves-effect waves-light green"
+              ><i class="material-icons">add</i></a
+            >
+          </div>
+          <ul id="side-menu" class="side-menu">
+            <li>
+              <a
+                class="col s7 waves-effect waves-light btn shortcutMargin"
+                href="https://www.google.com/"
+                target="_blank"
+                >Support</a
+              >
+              <a class="col s2 shortcut-edit btn shortcutEdit shortcutMargin amber accent-4">
+                <i class="material-icons">edit_outline</i></a
+              >
+              <a class="col s2 shortcut-delete btn shortcutEdit shortcutMargin red">
+                <i class="material-icons">delete_outline</i></a
               >
             </li>
             <li>
               <a
-                class="waves-effect waves-light btn shortcutMargin"
+                class="col s7 waves-effect waves-light btn shortcutMargin"
                 href="https://www.google.com/"
                 target="_blank"
-                >ShortStuff Support</a
+                >Google</a
               >
-            </li>
-            <li>
-              <a
-                class="waves-effect waves-light btn shortcutMargin"
-                href="https://www.google.com/"
-                target="_blank"
-                >Other Link</a
+              <a class="col s2 shortcut-edit btn shortcutEdit shortcutMargin amber accent-4">
+                <i class="material-icons">edit_outline</i></a
+              >
+              <a class="col s2 shortcut-delete btn shortcutEdit shortcutMargin red">
+                <i class="material-icons">delete_outline</i></a
               >
             </li>
             <!--<li><a href="" target="_blank"></a></li>-->
@@ -103,5 +123,8 @@
         </div>
       </div>
     </div>
+    <script src="/Files_JavaScript/ui.js"></script>
+    <script type="module" src="/Files_JavaScript/db.js"></script>
+    <script src="/Files_JavaScript/app.js"></script>
   </body>
 </html>

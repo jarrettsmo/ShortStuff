@@ -17,6 +17,10 @@ a.modeMargin {
   margin: 20px 10px;
 }
 
+a.shortcutEdit {
+  display: block;
+}
+
 a.shortcutMargin {
   font-size: 0.75em;
   margin: 5px;
