@@ -1,5 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+//import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+import { initializeApp } from '/firebase/app';
+import { getAnalytics } from "/firebase/analytics";
 import {
   getFirestore,
   collection,
@@ -10,7 +11,12 @@ import {
   doc,
 } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
+// Import the functions you need from the SDKs you need
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
 // Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBUHRkerYlu07ZaEQfVLjX9t7XWljPIgjM",
   authDomain: "shortstuff-14e13.firebaseapp.com",
@@ -24,13 +30,24 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const analytics = getAnalytics(app);
+
+alert(db);
 
 async function getShortcuts(db) {
   const ShortcutsCol = collection(db, "Shortcuts");
   const ShortcutsSnapshot = await getDocs(ShortcutsCol);
-  const ShortcutsList = ShortcutsSnapshot.docs.map((doc) => doc);
+  const ShortcutsList = ShortcutsSnapshot.docs.map((doc) => doc); //doc.data();
   return ShortcutsList;
 }
+
+//console.log(getShortcuts(db));
+
+getShortcuts(db).then((docs) => {
+  docs.forEach((d) => {
+    console.log(d.data());
+  });
+});
 
 const unsub = onSnapshot(collection(db, "Shortcuts"), (doc) => {
   //   console.log(doc.docChanges());
