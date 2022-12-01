@@ -35,7 +35,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const analytics = getAnalytics(app);
 
-alert(db);
+//alert(db);
 
 async function getShortcuts(db) {
   const ShortcutsCol = collection(db, "Shortcuts");
