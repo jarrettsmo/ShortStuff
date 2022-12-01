@@ -68,8 +68,8 @@ const unsub = onSnapshot(collection(db, "Shortcuts"), (doc) => {
 });
 
 //add new shortcut
-const form = document.querySelector("form");
-form.addEventListener("submit", (event) => {
+const form = document.querySelector("#addBtn");
+form.addEventListener("click", (event) => {
   event.preventDefault();
 
   addDoc(collection(db, "Shortcuts"), {
