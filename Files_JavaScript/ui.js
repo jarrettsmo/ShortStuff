@@ -9,29 +9,34 @@ document.addEventListener("DOMContentLoaded", function () {
   M.Sidenav.init(forms, { edge: "left" });
 });
 
-const renderShortcut = (data, id) => {
+//Toggle Form to Add New Shortcut
+$("#addBtn").click(function(){
+  $("#addNewShortcut").toggle();
+});
+
+function renderShortcut(data, id) {
   const html = `
   <li data-id="${id}">
     <a 
-      class="col s7 waves-effect waves-light btn shortcutEdit shortcutMargin"
+      class="col s7 waves-effect waves-light btn shortcutMargin"
       href="${data.Link}"
       target="_blank"
       >${data.Title}</a
     >
     <a 
       class="col s2 shortcut-edit btn shortcutEdit shortcutMargin amber accent-4"
-      ><i class="material-icons">edit_outline</i></a
+      ><i class="material-icons" data-id="${id}">edit_outline</i></a
     >
     <a class="col s2 shortcut-delete btn shortcutEdit shortcutMargin red"
-      ><i class="material-icons">delete_outline</i></a
+      ><i class="material-icons" data-id="${id}">delete_outline</i></a
     >
   </li>
   `;
 
   Shortcuts.innerHTML += html;
-};
+}
 
-//toggle shortcut edit options
+//Toggle shortcut edit options
 function editShortcut() {
   const x = document.getElementsByClassName(".shortcutEdit");
   if (x.style.display === "block") {

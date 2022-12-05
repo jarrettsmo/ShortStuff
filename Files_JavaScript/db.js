@@ -1,5 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
+//import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+//import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
 //import { initializeApp } from '/firebase/app';
 //import { getAnalytics } from "/firebase/analytics";
 import {
@@ -10,9 +12,9 @@ import {
   addDoc,
   deleteDoc,
   doc,
-} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
-
-//from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+} 
+//from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
@@ -35,8 +37,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const analytics = getAnalytics(app);
 
-//alert(db);
-
 async function getShortcuts(db) {
   const ShortcutsCol = collection(db, "Shortcuts");
   const ShortcutsSnapshot = await getDocs(ShortcutsCol);
@@ -44,14 +44,14 @@ async function getShortcuts(db) {
   return ShortcutsList;
 }
 
-//console.log(getShortcuts(db));
-
+//Read existing shortcuts
 getShortcuts(db).then((docs) => {
   docs.forEach((d) => {
     console.log(d.data());
   });
 });
 
+//Update existing shortcut?????
 const unsub = onSnapshot(collection(db, "Shortcuts"), (doc) => {
   //   console.log(doc.docChanges());
   doc.docChanges().forEach((change) => {
@@ -67,9 +67,9 @@ const unsub = onSnapshot(collection(db, "Shortcuts"), (doc) => {
   });
 });
 
-//add new shortcut
-const form = document.querySelector("#addBtn");
-form.addEventListener("click", (event) => {
+//Create new shortcut
+const form = document.querySelector("form");
+form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   addDoc(collection(db, "Shortcuts"), {
@@ -80,7 +80,7 @@ form.addEventListener("click", (event) => {
   form.Link.value = "";
 });
 
-//delete shortcut
+//Delete shortcut
 const ShortcutContainer = document.querySelector(".Shortcuts");
 ShortcutContainer.addEventListener("click", (event) => {
   if (event.target.tagName === "I") {

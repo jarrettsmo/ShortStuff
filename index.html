@@ -25,6 +25,10 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <!-- W3 CDN -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
 
     <title>ShortStuff</title>
@@ -41,6 +45,7 @@
       </nav>
     -->
     <div id="masterContainer">
+      <!-- App Header Section -->
       <div class="row">
         <div class="col s12">
           <div class="row epbackground">
@@ -52,6 +57,7 @@
                 width="72px"
               />
             </div>
+            <!-- Buttons to Switch Between App Functions -->
             <div class="col s11">
               <a class="waves-effect waves-light btn right modeMargin"
                 >Shortcuts</a
@@ -66,9 +72,11 @@
           </div>
         </div>
       </div>
+      <!-- App Control Bar that Appears/Disappears Based on Whether it is Needed for Current Focus within the App -->
       <div class="row">
         <div class="col s12 teal hide">Focus Control Bar</div>
       </div>
+      <!-- App Templates Appear Here -->
       <div class="row">
         <div class="col s9 teal lighten-2 h-100">
           <div class="container">
@@ -76,21 +84,42 @@
             <textarea class="primaryFocus"></textarea>
           </div>
         </div>
+        <!-- App Shortcuts Appear Here -->
         <div class="col s3">
           <div>
+            <!-- This Button Toggles Between Hiding/Showing the Edit and Delete Buttons for Each Shortcut -->
             <span class="addBtnMargin">Edit Shortcuts</span
               >
-              <a class="btn-floating btn-small waves-effect amber accent-4"
+              <a class="btn-floating btn-small waves-effect amber accent-4" data-target="side-form"
                 ><i onclick="w3.toggleShow('.shortcutEdit')"  class="material-icons">edit</i></a
               >
+            <!-- This Button Displays a Form to Add a New Shortcut -->
             <span class="addBtnMargin">Add Shortcut</span
             >
             <a id="addBtn" class="btn-floating btn-small waves-effect waves-light green"
               ><i class="material-icons">add</i></a
             >
           </div>
+          <!-- The Form to Add a New Shortcut -->
+          <div id="addNewShortcut">
+            <form class="shortcutAdd">
+              <h5><strong>New Shortcut</strong></h5>
+              <!-- New Shortcut Title -->
+              <div class="input-field">
+                <input id="Title" class="validate" type="text" placeholder="Enter Shortcut Title Here">
+              </div>
+              <!-- New Shortcut Link -->
+              <div class="input-field">
+                <input id="Link" class="validate" type="text" placeholder="Paste Shortcut Link Here">
+              </div>
+              <!-- Button to "Submit" the New Shortcut to be Created in the Firebase Database/Display in Shortcuts List -->
+              <div class="input-field center">
+                <button class="btn-small">Add</button>
+              </div>
+            </form>
+          </div>
           <div>
-            <ul id="side-menu" class="Shortcuts side-menu">
+            <ul id="side-menu" class="Shortcuts" data-target="side-menu">
               <!-- Firebase database "Shortcuts" collection documents display as unordered list items here. -->
             </ul>
           </div>

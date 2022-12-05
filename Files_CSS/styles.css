@@ -50,3 +50,7 @@ div#masterContainer {
   max-width: 100%;
   padding: 0;
 }
+
+div#addNewShortcut {
+  display: none;
+}
