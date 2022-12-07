@@ -28,9 +28,6 @@
     <!-- JQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
-    <!-- W3 CDN -->
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
-
     <title>ShortStuff</title>
   </head>
   <body>
@@ -86,23 +83,23 @@
         </div>
         <!-- App Shortcuts Appear Here -->
         <div class="col s3">
-          <div>
+          <div class="center section">
             <!-- This Button Toggles Between Hiding/Showing the Edit and Delete Buttons for Each Shortcut -->
             <span class="addBtnMargin">Edit Shortcuts</span
               >
-              <a class="btn-floating btn-small waves-effect amber accent-4" data-target="side-form"
-                ><i onclick="w3.toggleShow('.shortcutEdit')"  class="material-icons">edit</i></a
+              <a id="editBtn" class="btn-floating btn-small waves-effect amber accent-4" data-target="side-form"
+                ><i class="material-icons">edit</i></a
               >
             <!-- This Button Displays a Form to Add a New Shortcut -->
-            <span class="addBtnMargin">Add Shortcut</span
+            <span class="addBtnMargin">Add Shortcuts</span
             >
             <a id="addBtn" class="btn-floating btn-small waves-effect waves-light green"
               ><i class="material-icons">add</i></a
             >
           </div>
           <!-- The Form to Add a New Shortcut -->
-          <div id="addNewShortcut">
-            <form class="shortcutAdd">
+          <div id="addNewShortcut" class="card-panel z-depth-3">
+            <form class="add-Shortcut">
               <h5><strong>New Shortcut</strong></h5>
               <!-- New Shortcut Title -->
               <div class="input-field">
@@ -118,10 +115,38 @@
               </div>
             </form>
           </div>
-          <div>
-            <ul id="side-menu" class="Shortcuts" data-target="side-menu">
-              <!-- Firebase database "Shortcuts" collection documents display as unordered list items here. -->
-            </ul>
+          <!-- The Form to Edit an Existing Shortcut -->
+          <div id="editingShortcut" class="card-panel z-depth-3">
+            <form class="editing-Shortcut">
+              <h5><strong>Shortcut Editor</strong></h5>
+              <!-- Select Target Shortcut by Title -->
+              <!-- <div class="center"> -->
+                  <!-- Dropdown Trigger -->
+                <!-- <a class='dropdown-trigger btn' href='#' data-target="dropdown1">Select Shortcut</a> -->
+
+                <!-- Dropdown Structure -->
+                <!-- <ul id='dropdown1' class='Shortcuts dropdown-content' data-target="dropdown-menu"> -->
+                  <!-- Firebase database "Shortcuts" collection documents display here by Title. -->
+                <!-- </ul> -->
+              <!-- </div> -->
+              <!-- New Shortcut Title -->
+              <div class="input-field">
+                <input id="Title" class="validate" type="text" placeholder="Enter Shortcut Title Here">
+              </div>
+              <!-- New Shortcut Link -->
+              <div class="input-field">
+                <input id="Link" class="validate" type="text" placeholder="Paste Shortcut Link Here">
+              </div>
+              <!-- Button to "Submit" the New Shortcut to be Created in the Firebase Database/Display in Shortcuts List -->
+              <div class="input-field center">
+                <button class="btn-small">Add</button>
+              </div>
+            </form>
+          </div>
+          <div class="">
+            <div id="side-menu" class="Shortcuts" data-target="side-menu">
+              <!-- Firebase database "Shortcuts" collection documents display here. -->
+            </div>
           </div>
         </div>
       </div>

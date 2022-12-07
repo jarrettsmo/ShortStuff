@@ -17,17 +17,13 @@ a.modeMargin {
   margin: 20px 10px;
 }
 
-a.shortcutEdit {
-  display: block;
-}
+span.shortcutEdit {
+  display: none;
 
-a.shortcutMargin {
-  font-size: 0.75em;
-  margin: 5px;
-  width: 100%;
 }
 
 span.addBtnMargin {
+  color: rgb(200, 200, 200);
   font-size: 0.75em;
   margin: 10px;
 }

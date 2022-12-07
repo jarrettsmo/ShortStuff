@@ -80,9 +80,21 @@ form.addEventListener("submit", (event) => {
   form.Link.value = "";
 });
 
+//Update/Edit shortcut
+// const ShortcutsContainer = document.querySelector(".Shortcuts");
+// ShortcutsContainer.addEventListener("click", (event) => {
+// console.log(event);
+  /*
+  if (event.target.tagName === "I") {
+    const id = event.target.getAttribute("data-id");
+    deleteDoc(doc(db, "Shortcuts", id));
+  }*/
+// });
+
 //Delete shortcut
 const ShortcutContainer = document.querySelector(".Shortcuts");
 ShortcutContainer.addEventListener("click", (event) => {
+  // console.log(event);
   if (event.target.tagName === "I") {
     const id = event.target.getAttribute("data-id");
     deleteDoc(doc(db, "Shortcuts", id));
