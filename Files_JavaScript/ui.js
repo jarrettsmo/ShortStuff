@@ -13,22 +13,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function renderShortcut(data, id) {
   const html = `
-  <div class="Shortcuts card-panel" data-id="${id}">
-    <a
-      class="collection-item"
-      href="${data.Link}"
-      target="_blank"
-      >${data.Title}
-    </a>
-    <span class="right shortcutEdit">
-        <button 
-          class="shortcut-edit btn-floating btn-small amber accent-4">
-          <i class="material-icons" data-id="${id}">edit</i>
-        </button>
-        <button class="shortcut-delete btn-floating btn-small red">
+  <div class="Shortcuts flex-container" data-id="${id}">
+    <div class="customCardPanel valign-wrapper">
+      <div class="col s9 left-align">
+        <a
+          class=""
+          href="${data.Link}"
+          target="_blank"
+          >${data.Title}
+        </a>
+      </div>
+      <div class="col s3 right-align">
+        <button class="shortcutEdit shortcut-delete btn-floating btn-small red">
           <i class="material-icons" data-id="${id}">delete</i>
         </button>
-    </span>
+      </div>
+    </div>
   </div>
   `;
 
@@ -59,12 +59,20 @@ const removeShortcut = (id) => {
   Shortcuts.remove();
 };
 
+//Toggle Hide/Show Shortcuts Navigation Bar
+$("#main").click(function(){
+  $("mySidebar").toggle();
+  $("#editingShortcut, #addNewShortcut, button.shortcutEdit").hide();
+});
+
 //Toggle Form to Add New Shortcut
 $("#addBtn").click(function(){
   $("#addNewShortcut").toggle();
+  $("#editingShortcut, button.shortcutEdit").hide();
 });
 
 //Toggle shortcut edit options
 $("#editBtn").click(function(){
-  $("span.shortcutEdit").toggle();
+  $("#editingShortcut, button.shortcutEdit").toggle();
+  $("#addNewShortcut").hide();
 });
