@@ -8,21 +8,10 @@ div.row {
   margin-bottom: 0;
 }
 
-div.selectedShortcut {
-  font-size: 1.7rem;
-  font-weight: bold;
-}
-
 .flex-container {
   display: flex;
 }
 
-.selectedShortcut {
-  height: 40px;
-  border: 2px;
-  border-style: solid;
-  border-color: black;
-}
 .customCardPanel {
   background-color: rgb(255, 255, 255);
   font-size: 16px;
@@ -49,21 +38,6 @@ a.modeMargin {
 
 div.shortcutBtnMargin {
   margin: 10px 15px;
-}
-
-span.addBtnMargin {
-  color: rgb(200, 200, 200);
-  font-size: 0.75em;
-  padding: 5px;
-  text-align: left;
-}
-
-textarea.primaryFocus {
-  background-color: white;
-  font-size: 1.5em;
-  height: 300px;
-  resize: none;
-  width: 100%;
 }
 
 div.h-100 {
