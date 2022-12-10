@@ -1,57 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+        <!--<meta http-equiv="X-UA-Compatible" content="IE-edge" charset="UTF-8" />-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
-    <link rel="stylesheet" href="/public/css/materialize.min.css">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/public/css/app.css">
-    <script type="text/javascript" src="/public/js/materialize.min.js"></script>
-    <link rel="manifest" href="/public/manifest.json">
-</head>
+        <!--Customized CSS Stylesheet-->
+        <link rel="stylesheet" href="/Files_CSS/styles.css" />
 
-<body class="grey lighten-4">
-    <nav class="z-depth-0">
-        <div class="nav-wrapper container">
-            <a href="/">Task<span> Manager</a>
-            <span class="right grey-text text-darken-1">
-                <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
-            </span>
-        </div>
-    </nav>
+        <!--Manifest.json File-->
+        <link rel="manifest" href="/.vscode/manifest.json">
 
-    <ul id="side-menu" class="sidenav side-menu">
-        <li><a class="subheader">TASK MANAGER</a></li>
-        <li><a href="/" class="waves-effect">Home</a></li>
-        <li><a href="/public/pages/about.html" class="waves-effect">About</a></li>
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li><a href="/public/pages/contact.html" class="waves-effect"><i
-                    class="material-icons">mail_outline</i>Contact</a>
+        <!--Import Google Icon Font-->
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <!-- Compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        />
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-        </li>
-    </ul>
+        <!-- JQuery CDN -->
+        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+        <title>ShortStuff</title>
+    </head>
 
-    <!-- Content -->
-    <div class="container grey-text">
-        <h5 class="center">Contact</h5>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nulla at suscipit! Eaque consectetur,
-            officia amet itaque distinctio consequatur sunt quia pariatur autem, debitis est impedit enim sint alias in.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum perferendis similique, nemo officia quis
-            neque aspernatur repudiandae eveniet aliquam doloribus id laborum ex fugiat! Quae ipsum corrupti facilis
-            possimus fugiat!
-        </p>
-    </div>
+    <body class="amber accent-4 h-100">
 
-    <script src="/public/js/ui.js"></script>
+        <!-- Beginning of Master Container Content -->
+        <div id="masterContainer">
+
+            <!-- App Header Section -->
+            <div class="row">
+                <div class="col s12">
+                    <div class="row epbackground">
+                        <div class="col s1 LogoSS">
+                            <a href="/"><img
+                            class="LogoSS"
+                            src="../Media/Logos/LOGO_ShortStuff_01.png"
+                            height="72px"
+                            width="72px"
+                            /></a>
+                        </div>
+                        <!-- Buttons Containing Additional Resources -->
+                        <div class="col s11">
+                            <a id="homeBtn" class="btn blue darken-4 right modeMargin" href="/"
+                            >Back to Homescreen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- App Support Message and Email Form Appears Here -->
+            <div class="container">
+                <div class="card-panel">
+                    <h3 class="center">Support Resources</h3>
+                    <p>
+                        Please feel free to contact us a the ShortStuff team for any questions or assistance you may need using our app! 
+                        General inquiries, issues, and other requests may be submitted to our team by completing the form below: 
+                    </p>
+                    <!-- Button to Email App Support -->
+                    <div class="input-field center">
+                        <a 
+                            id="btnSupport" 
+                            class="btn-small amber accent-4" 
+                            href="mailto:write2jarrett@gmail.com?subject=ShortStuff%20App%20Support%20Request" 
+                        >Email Support</a>
+                    </div>
+                </div>
+            </div>
+        
+        <!-- End of Master Container Content -->
+        </div>    
+    <script src="./Files_JavaScript/ui.js"></script>
+    <script type="module" src="./Files_JavaScript/db.js"></script>
+    <script src="./Files_JavaScript/app.js"></script>
 
 </body>
 

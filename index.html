@@ -29,8 +29,10 @@
 
     <title>ShortStuff</title>
   </head>
-  <body class="teal lighten-2 h-100">
+
+  <body class="light-blue accent-4 h-100">
     <div id="masterContainer">
+
       <!-- App Header Section -->
       <div class="row">
         <div class="col s12">
@@ -43,15 +45,15 @@
                 width="72px"
               />
             </div>
-            <!-- Buttons Containing Additional Resources -->
+            <!-- Primary ShortStuff App Control Buttons -->
             <div class="col s11">
-              <a id="addBtn" class="btn right modeMargin"  data-target="side-form"
+              <a id="addBtn" class="btn blue darken-4 right modeMargin"  data-target="side-form"
                 >Add</a
               >
-              <a id="editBtn" class="btn right modeMargin"  data-target="side-form"
-              >Edit</a
+              <a id="removeBtn" class="btn blue darken-4 right modeMargin"  data-target="side-form"
+              >Remove</a
             >
-              <a id="supportBtn" class="btn right modeMargin" href="/Files_HTML/Support.html" target="_blank" 
+              <a id="supportBtn" class="btn blue darken-4 right modeMargin" href="/Files_HTML/Support.html" target="_blank" 
                 >Support</a
               >
             </div>
@@ -63,64 +65,42 @@
       <div class="row">
         <div class="col s12">
 
-              <!-- App Shortcuts Section -->
-              <div class="container">
+          <!-- App Shortcuts Section -->
+          <div class="container">
 
-                    <!-- Form to Add a New Shortcut -->
-                    <div id="addNewShortcut" class="card-panel z-depth-3">
-                      <form id="formAddNewShortcut" class="add-Shortcut">
-                        <h5><strong>New Shortcut</strong></h5>
-                        <!-- New Shortcut Title -->
-                        <div class="input-field">
-                          <input id="Title" class="validate" type="text" placeholder="Enter Shortcut Title Here">
-                        </div>
-                        <!-- New Shortcut Link -->
-                        <div class="input-field">
-                          <input id="Link" class="validate" type="text" placeholder="Paste Shortcut Link Here">
-                        </div>
-                        <!-- Button to "Submit" the New Shortcut (Created in Firebase Database/Displayed in Shortcuts List) -->
-                        <div class="input-field center">
-                          <button class="btn-small">Add</button>
-                        </div>
-                      </form>
-                    </div>
-
-                    <!-- Form to Edit an Existing Shortcut -->
-                    <div id="editingShortcut" class="card-panel z-depth-3">
-                      <form id="formEditNewShortcut" class="editing-Shortcut">
-                        <h5><strong>Shortcut Editor</strong></h5>
-                        <!-- Select Target Shortcut by Title -->
-                        <div class="center">
-                          <div id="targetShortcut" class="selectedShortcut amber" data-target="side-menu">
-                            <!-- Selected Firebase database targeted "Shortcut" collection document to edit displays here. -->
-                          </div>
-                        </div>
-                        <!-- New Shortcut Title -->
-                        <div class="input-field">
-                          <input id="TitleEdit" class="validate" type="text" placeholder="Enter New Shortcut Title Here">
-                        </div>
-                        <!-- New Shortcut Link -->
-                        <div class="input-field">
-                          <input id="LinkEdit" class="validate" type="text" placeholder="Paste New Shortcut Link Here">
-                        </div>
-                        <!-- Button to "Submit" Updated Shortcut (Updated in Firebase Database/Displayed in Shortcuts List) -->
-                        <div class="input-field center">
-                          <button class="btn-small">Update</button>
-                        </div>
-                      </form>
-                    </div>
-
-                    <!-- List of Shortcuts -->
-                    <div id="side-menu" class="Shortcuts row" data-target="side-menu">
-                      <!-- Firebase database "Shortcuts" collection documents display here. -->
-                    </div>
-              </div> 
+            <!-- Form to Add a New Shortcut -->
+            <div id="addNewShortcut" class="card-panel z-depth-3">
+              <form id="formAddNewShortcut" class="add-Shortcut">
+                <h5><strong>New Shortcut</strong></h5>
+                <!-- New Shortcut Title -->
+                <div class="input-field">
+                  <input id="Title" class="validate" type="text" placeholder="Enter Shortcut Title Here">
+                </div>
+                <!-- New Shortcut Link -->
+                <div class="input-field">
+                  <input id="Link" class="validate" type="text" placeholder="Paste Shortcut Link Here">
+                </div>
+                <!-- Button to "Submit" the New Shortcut (Created in Firebase Database/Displayed in Shortcuts List) -->
+                <div class="input-field center">
+                  <button class="blue darken-4 btn-small">Add New Shortcut</button>
+                </div>
+              </form>
             </div>
+
+            <!-- List of Shortcuts -->
+            <div id="side-menu" class="Shortcuts row" data-target="side-menu">
+              <!-- Firebase database "Shortcuts" collection documents display here. -->
+            </div>
+
+          </div> 
         </div>
       </div>
     </div>
+
+    <!-- Linked JavaScript Files -->
     <script src="./Files_JavaScript/ui.js"></script>
     <script type="module" src="./Files_JavaScript/db.js"></script>
     <script src="./Files_JavaScript/app.js"></script>
+  
   </body>
 </html>
