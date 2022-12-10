@@ -1,4 +1,3 @@
-<!-- saved from url=(0032)https://jarrett.endpointdev.com/ -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -44,65 +43,30 @@
                 width="72px"
               />
             </div>
-            <!-- Buttons to Switch Between App Functions -->
+            <!-- Buttons Containing Additional Resources -->
             <div class="col s11">
-              <a id="main" class="btn right modeMargin"
-                >Shortcuts</a
+              <a id="addBtn" class="btn right modeMargin"  data-target="side-form"
+                >Add</a
               >
-              <a class="btn right modeMargin"
-                >Templates</a
+              <a id="editBtn" class="btn right modeMargin"  data-target="side-form"
+              >Edit</a
+            >
+              <a id="supportBtn" class="btn right modeMargin" href="/Files_HTML/Support.html" target="_blank" 
+                >Support</a
               >
-              <!-- <a class="btn right modeMargin"
-                >Modes</a
-              > -->
             </div>
           </div>
         </div>
       </div>
-      <!-- App Control Bar that Appears/Disappears Based on Whether it is Needed for Current Focus within the App -->
-      <div class="row">
-        <div class="col s12 teal hide">Focus Control Bar</div>
-      </div>
+
       <!-- App Templates Appear Here -->
       <div class="row">
         <div class="col s12 teal lighten-2 h-100">
           <div class="">
-            <div class="row">
-              <div class="col s9">
-                <h3>Type Notes Here</h3>
-                <textarea class="primaryFocus"></textarea>
-              </div>
 
               <!-- App Shortcuts Section -->
               <div class="col s3">
                 <div id="mySidebar" class="sidebar">
-
-                  <!-- Shortcut Control Buttons Section -->
-                  <div class="container">
-                    <div class="row">
-                      <div class="col s12">
-                        <div class="center">
-                          <div class="row shortcutBtnMargin">
-                            <!-- This Button Toggles Hiding/Showing a Form to Edit Shortcuts and Icons to Delete Shortcuts -->
-                            <div class="col s6 valign-wrapper">
-                              <span class="addBtnMargin">Edit Shortcuts</span>
-                              <a id="editBtn" class="btn-floating btn-small waves-effect right amber accent-4" data-target="side-form">
-                                <i class="material-icons">edit</i>
-                              </a>
-                            </div>
-                            <!-- This Button Toggles Hiding/Showing a Form to Add New Shortcuts -->
-                            <div class="col s6 valign-wrapper">
-                              <span class="addBtnMargin">Add Shortcuts</span>
-                              <a id="addBtn" class="btn-floating btn-small waves-effect waves-light green"  data-target="side-form">
-                                <i class="material-icons">add</i>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                    
                   <div>
                     <!-- Form to Add a New Shortcut -->
                     <div id="addNewShortcut" class="card-panel z-depth-3">
@@ -129,19 +93,9 @@
                         <h5><strong>Shortcut Editor</strong></h5>
                         <!-- Select Target Shortcut by Title -->
                         <div class="center">
-
-
-
-                          <!-- Dropdown Trigger -->
-                          <a class='dropdown-trigger btn' href='#' data-target="dropdown1">Select Shortcut</a>
-
-                          <!-- Dropdown Structure -->
-                          <!-- <ul id='dropdown1' class='Shortcuts dropdown-content' data-target="dropdown-menu"> -->
-                            <!-- Firebase database "Shortcuts" collection documents display here by Title. -->
-                          <!-- </ul> -->
-
-
-
+                          <div id="targetShortcut" class="selectedShortcut" data-target="side-menu">
+                            <!-- Selected Firebase database targeted "Shortcut" collection document to edit displays here. -->
+                          </div>
                         </div>
                         <!-- New Shortcut Title -->
                         <div class="input-field">

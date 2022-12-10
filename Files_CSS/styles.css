@@ -12,6 +12,12 @@ div.row {
   display: flex;
 }
 
+.selectedShortcut {
+  height: 40px;
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+}
 .customCardPanel {
   background-color: rgb(255, 255, 255);
   font-size: 16px;
@@ -32,8 +38,8 @@ img.LogoSS {
 }
 
 a.modeMargin {
-  margin: 20px 10px;
-  width: 120px;
+  margin: 1.5rem 10px;
+  width: 100px;
 }
 
 div.shortcutBtnMargin {

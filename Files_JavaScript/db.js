@@ -8,6 +8,7 @@ import {
   getFirestore,
   collection,
   getDocs,
+  getDoc,
   onSnapshot,
   addDoc,
   deleteDoc,
@@ -51,7 +52,7 @@ getShortcuts(db).then((docs) => {
   });
 });
 
-//Update existing shortcut?????
+//Shortcut document snapshots
 const unsub = onSnapshot(collection(db, "Shortcuts"), (doc) => {
   //   console.log(doc.docChanges());
   doc.docChanges().forEach((change) => {
@@ -81,22 +82,59 @@ form.addEventListener("submit", (event) => {
 });
 
 //Update/Edit shortcut
-// const ShortcutsContainer = document.querySelector(".Shortcuts");
-// ShortcutsContainer.addEventListener("click", (event) => {
-// console.log(event);
-  /*
+ const ShortcutsContainers = document.querySelector(".Shortcuts");
+ ShortcutsContainers.addEventListener("click", (event) => {
+  // console.log(event);
+  
+   /*
   if (event.target.tagName === "I") {
-    const id = event.target.getAttribute("data-id");
+     const id = event.target.getAttribute("data-id");
     deleteDoc(doc(db, "Shortcuts", id));
   }*/
-// });
+});
 
 //Delete shortcut
 const ShortcutContainer = document.querySelector(".Shortcuts");
 ShortcutContainer.addEventListener("click", (event) => {
   // console.log(event);
-  if (event.target.tagName === "I") {
-    const id = event.target.getAttribute("data-id");
-    deleteDoc(doc(db, "Shortcuts", id));
+  // if (event.target.tagName === "I") {
+     const id = event.target.getAttribute("data-id");
+  //   deleteDoc(doc(db, "Shortcuts", id));
+  // }
+  async function getShortcutTitle() {
+    const docRef = doc(db, "Shortcuts", id);
+    const docSnap = await getDoc(docRef);
+    const stuff = docSnap.data();
+    alert(stuff.Title);
   }
+  getShortcutTitle();
 });
+
+function bang(id) {
+  $("#editingShortcut, button.shortcutEdit").toggle();
+  $("#addNewShortcut").hide();
+  const docRef = doc(db, "Shortcuts", id);
+  const docSnap = getDoc(docRef);
+  alert(docSnap);
+}
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   var elems = document.querySelectorAll('select');
+//   var instances = M.FormSelect.init(elems, options);
+// });
+
+// // Or with jQuery
+
+// $(document).ready(function(){
+//   $('select').formSelect();
+// });
+
+// var instance = M.FormSelect.getInstance(elem);
+
+  /* jQuery Method Calls
+    You can still use the old jQuery plugin method calls.
+    But you won't be able to access instance properties.
+
+    $('select').formSelect('methodName');
+    $('select').formSelect('methodName', paramName);
+  */

@@ -1,9 +1,10 @@
 {
   "name": "ShortStuff",
-  "short_name": "SS",
+  "short_name": "ShortStuff",
   "description": "Manage shortcuts, templates, and tasks",
   "start_url": "/index.html",
-  "scope": ".",
+  "scope": "/",
+  "display_override": ["minimal-ui"],
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#4db6ac",
