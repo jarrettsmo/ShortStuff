@@ -13,6 +13,7 @@ import {
   addDoc,
   deleteDoc,
   doc,
+  updateDoc
 } 
 //from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
@@ -45,96 +46,133 @@ async function getShortcuts(db) {
   return ShortcutsList;
 }
 
-//Read existing shortcuts
+//Read Existing Shortcuts
 getShortcuts(db).then((docs) => {
   docs.forEach((d) => {
     console.log(d.data());
   });
 });
 
-//Shortcut document snapshots
+//Shortcuts App DocumentChange
 const unsub = onSnapshot(collection(db, "Shortcuts"), (doc) => {
   //   console.log(doc.docChanges());
   doc.docChanges().forEach((change) => {
     // console.log(change, change.doc.data(), change.doc.id);
     if (change.type === "added") {
-      //Call render function in UI
+      //Reads the document in Shortcuts collection
       renderShortcut(change.doc.data(), change.doc.id);
     }
+    if (change.type === "modified") {
+      //Updates the document in Shortcuts collection
+      renderShortcut(change.doc.data());
+    }
     if (change.type === "removed") {
-      //do something
+      //Deletes the document in Shortcuts collection
       removeShortcut(change.doc.id);
     }
   });
 });
 
-//Create new shortcut
-const form = document.querySelector("form");
-form.addEventListener("submit", (event) => {
+//Create/Add New Shortcut
+const formAdd = document.querySelector("#formAddNewShortcut");
+formAdd.addEventListener("submit", (event) => {
   event.preventDefault();
 
   addDoc(collection(db, "Shortcuts"), {
-    Title: form.Title.value,
-    Link: form.Link.value,
+    Title: formAdd.Title.value,
+    Link: formAdd.Link.value
   }).catch((error) => console.log(error));
-  form.Title.value = "";
-  form.Link.value = "";
+  formAdd.Title.value = "";
+  formAdd.Link.value = "";
 });
 
-//Update/Edit shortcut
- const ShortcutsContainers = document.querySelector(".Shortcuts");
- ShortcutsContainers.addEventListener("click", (event) => {
-  // console.log(event);
-  
-   /*
-  if (event.target.tagName === "I") {
-     const id = event.target.getAttribute("data-id");
-    deleteDoc(doc(db, "Shortcuts", id));
-  }*/
+//Update/Edit Shortcut
+const ShortcutEditForm = document.querySelector(".Shortcuts");
+ShortcutEditForm.addEventListener("click", (event) => {
+
+  if (event.target.textContent === "edit") {
+    const id = event.target.getAttribute("data-id");
+    const idSelected = document.querySelector("#targetShortcut");
+
+    async function getShortcutTitle(id) {
+      const docRef = doc(db, "Shortcuts", id);
+      const docSnap = await getDoc(docRef);
+      const stuff = docSnap.data();
+      idSelected.innerHTML = stuff.Title;
+    }
+    getShortcutTitle(id);
+  }
 });
 
-//Delete shortcut
+const formEdit = document.querySelector("#formEditNewShortcut");
+formEdit.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  // async function editTheShortcut() {
+  //   db.collection(".Shortcuts").doc(id).update({
+  //     Title: formEdit.TitleEdit.value,
+  //     Link: formEdit.LinkEdit.value,
+  //   }).catch((error) => console.log(error));
+  //   formEdit.TitleEdit.value = "";
+  //   formEdit.LinkEdit.value = "";
+  // }
+  // editTheShortcut();
+
+//   async function getShortcutTitle(id) {
+//     const docRef = doc(db, "Shortcuts", id);
+//     const docSnap = await getDoc(docRef);
+//     const stuff = docSnap.data();
+//     idSelected.innerHTML = stuff.Title;
+//   }
+//   editTheShortcut(id);
+// }
+
+  // async function getShortcutTitle() {
+  //   const docRef = doc(db, "Shortcuts", id);
+  //   const docSnap = await getDoc(docRef);
+  //   const stuff = docSnap.data();
+  //   console.log(stuff.Title);
+  // }
+  // getShortcutTitle();
+
+
+
+  //  const ShortcutsContainers = document.querySelector(".Shortcuts");
+  //  ShortcutsContainers.addEventListener("click", (event) => {
+    // console.log(event);
+
+  // getDoc(collection(db, "Shortcuts"), {
+  //   Title: formEdit.Title.value,
+  //   Link: formEdit.Link.value,
+  // }).catch((error) => console.log(error));
+  // formEdit.Title.value = "";
+  // formEdit.Link.value = "";
+});
+
+//Delete Shortcut
 const ShortcutContainer = document.querySelector(".Shortcuts");
 ShortcutContainer.addEventListener("click", (event) => {
   // console.log(event);
-  // if (event.target.tagName === "I") {
-     const id = event.target.getAttribute("data-id");
-  //   deleteDoc(doc(db, "Shortcuts", id));
-  // }
-  async function getShortcutTitle() {
-    const docRef = doc(db, "Shortcuts", id);
-    const docSnap = await getDoc(docRef);
-    const stuff = docSnap.data();
-    alert(stuff.Title);
+  if (event.target.textContent === "delete") {
+    const id = event.target.getAttribute("data-id");
+  deleteDoc(doc(db, "Shortcuts", id));
   }
-  getShortcutTitle();
 });
 
-function bang(id) {
-  $("#editingShortcut, button.shortcutEdit").toggle();
-  $("#addNewShortcut").hide();
-  const docRef = doc(db, "Shortcuts", id);
-  const docSnap = getDoc(docRef);
-  alert(docSnap);
-}
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   var elems = document.querySelectorAll('select');
-//   var instances = M.FormSelect.init(elems, options);
+// *** TEST FUNCTION ***
+// const ShortcutContainer = document.querySelector(".Shortcuts");
+// ShortcutContainer.addEventListener("click", (event) => {
+  // console.log(event);
+  // if (event.target.tagName === "I") {
+  // if (event.target.textContent === "delete") {
+  //   const id = event.target.getAttribute("data-id");
+  // deleteDoc(doc(db, "Shortcuts", id));
+  // }
+  // async function getShortcutTitle() {
+  //   const docRef = doc(db, "Shortcuts", id);
+  //   const docSnap = await getDoc(docRef);
+  //   const stuff = docSnap.data();
+  //   alert(stuff.Title);
+  // }
+  // getShortcutTitle();
 // });
-
-// // Or with jQuery
-
-// $(document).ready(function(){
-//   $('select').formSelect();
-// });
-
-// var instance = M.FormSelect.getInstance(elem);
-
-  /* jQuery Method Calls
-    You can still use the old jQuery plugin method calls.
-    But you won't be able to access instance properties.
-
-    $('select').formSelect('methodName');
-    $('select').formSelect('methodName', paramName);
-  */

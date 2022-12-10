@@ -29,7 +29,7 @@
 
     <title>ShortStuff</title>
   </head>
-  <body>
+  <body class="teal lighten-2 h-100">
     <div id="masterContainer">
       <!-- App Header Section -->
       <div class="row">
@@ -61,16 +61,14 @@
 
       <!-- App Templates Appear Here -->
       <div class="row">
-        <div class="col s12 teal lighten-2 h-100">
-          <div class="">
+        <div class="col s12">
 
               <!-- App Shortcuts Section -->
-              <div class="col s3">
-                <div id="mySidebar" class="sidebar">
-                  <div>
+              <div class="container">
+
                     <!-- Form to Add a New Shortcut -->
                     <div id="addNewShortcut" class="card-panel z-depth-3">
-                      <form class="add-Shortcut">
+                      <form id="formAddNewShortcut" class="add-Shortcut">
                         <h5><strong>New Shortcut</strong></h5>
                         <!-- New Shortcut Title -->
                         <div class="input-field">
@@ -89,21 +87,21 @@
 
                     <!-- Form to Edit an Existing Shortcut -->
                     <div id="editingShortcut" class="card-panel z-depth-3">
-                      <form class="editing-Shortcut">
+                      <form id="formEditNewShortcut" class="editing-Shortcut">
                         <h5><strong>Shortcut Editor</strong></h5>
                         <!-- Select Target Shortcut by Title -->
                         <div class="center">
-                          <div id="targetShortcut" class="selectedShortcut" data-target="side-menu">
+                          <div id="targetShortcut" class="selectedShortcut amber" data-target="side-menu">
                             <!-- Selected Firebase database targeted "Shortcut" collection document to edit displays here. -->
                           </div>
                         </div>
                         <!-- New Shortcut Title -->
                         <div class="input-field">
-                          <input id="Title" class="validate" type="text" placeholder="Enter Shortcut Title Here">
+                          <input id="TitleEdit" class="validate" type="text" placeholder="Enter New Shortcut Title Here">
                         </div>
                         <!-- New Shortcut Link -->
                         <div class="input-field">
-                          <input id="Link" class="validate" type="text" placeholder="Paste Shortcut Link Here">
+                          <input id="LinkEdit" class="validate" type="text" placeholder="Paste New Shortcut Link Here">
                         </div>
                         <!-- Button to "Submit" Updated Shortcut (Updated in Firebase Database/Displayed in Shortcuts List) -->
                         <div class="input-field center">
@@ -116,13 +114,8 @@
                     <div id="side-menu" class="Shortcuts row" data-target="side-menu">
                       <!-- Firebase database "Shortcuts" collection documents display here. -->
                     </div>
-
-                  </div>
-                </div>
-                
-              </div>
+              </div> 
             </div>
-          </div>
         </div>
       </div>
     </div>

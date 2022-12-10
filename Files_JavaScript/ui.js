@@ -72,20 +72,22 @@ const removeShortcut = (id) => {
   Shortcuts.remove();
 };
 
-//Toggle Hide/Show Shortcuts Navigation Bar
-$("#main").click(function(){
-  $("mySidebar").toggle();
-  $("#editingShortcut, #addNewShortcut, button.shortcutEdit").hide();
-});
-
 //Toggle Form to Add New Shortcut
 $("#addBtn").click(function(){
   $("#addNewShortcut").toggle();
   $("#editingShortcut, button.shortcutEdit").hide();
 });
 
-//Toggle shortcut edit options
-$("#editBtn").click(function(id){
-  $("#editingShortcut, button.shortcutEdit").toggle();
+//Toggle Shortcut Edit/Delete options
+$("#editBtn").click(function(){
+  $("button.shortcutEdit").toggle();
   $("#addNewShortcut").hide();
 });
+
+//Toggle Form to Edit Existing Shortcut
+$( document.body ).click(function() {
+  $("button.shortcutEdit").click(function(){
+    $("#editingShortcut").toggle();
+    $("#addNewShortcut").hide();
+  }); 
+}); 
